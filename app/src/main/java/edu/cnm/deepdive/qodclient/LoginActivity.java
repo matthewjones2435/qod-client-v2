@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
     if (account != null) {
       GoogleSignInService.getInstance().setAccount(account);
-      // TODO switch to the main.
+      switchToMain();
     }
   }
 
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
         GoogleSignInAccount account = task.getResult(ApiException.class);
         GoogleSignInService.getInstance().setAccount(account);
-        // TODO switch to the main.
+        switchToMain();
       } catch (ApiException e) {
         Toast.makeText(this, R.string.authentication_error, Toast.LENGTH_LONG).show();
       }
